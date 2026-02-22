@@ -8,6 +8,7 @@ from pathlib import Path
 
 
 HB_AFL_PREFIX = "https://hb.afl.rakuten.co.jp/"
+DEFAULT_RAKUTEN_URL = "https://www.rakuten.co.jp/"
 DEFAULT_CSV_PATH = Path("data/rakuten_links.csv")
 DEFAULT_HTML_PATH = Path("site/index.html")
 
@@ -118,6 +119,12 @@ def validate(csv_path: Path, html_path: Path) -> list[str]:
             if not csv_url.startswith(HB_AFL_PREFIX):
                 errors.append(
                     f"{csv_path}: key '{key}' has non-empty URL that is not hb.afl.rakuten.co.jp: {csv_url}"
+                )
+        else:
+            if href != DEFAULT_RAKUTEN_URL:
+                errors.append(
+                    f"{html_path}: key '{key}' is blank in CSV, so href must be {DEFAULT_RAKUTEN_URL}\n"
+                    f"  html: {href}"
                 )
 
     return errors
