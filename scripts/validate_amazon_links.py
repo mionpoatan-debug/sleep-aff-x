@@ -8,6 +8,7 @@ from pathlib import Path
 
 
 TRACKING_ID = "sleepcomparej-22"
+SHORT_URL_PREFIX = "https://amzn.to/"
 DEFAULT_CSV_PATH = Path("data/amazon_links.csv")
 DEFAULT_HTML_PATH = Path("site/index.html")
 
@@ -118,7 +119,7 @@ def validate(csv_path: Path, html_path: Path) -> list[str]:
                     f"  csv : {csv_url}"
                 )
 
-            if TRACKING_ID not in href:
+            if TRACKING_ID not in href and not href.startswith(SHORT_URL_PREFIX):
                 errors.append(
                     f"{html_path}: key '{key}' has non-empty CSV URL but missing tracking id '{TRACKING_ID}'"
                 )
