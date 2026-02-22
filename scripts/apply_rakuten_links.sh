@@ -29,7 +29,7 @@ while IFS= read -r line || [[ -n "$line" ]]; do
     continue
   fi
 
-  # URLが空欄なら現状維持。
+  # URLが空欄なら現状維持
   if [[ -z "$rakuten_url" ]]; then
     continue
   fi
