@@ -148,15 +148,43 @@ tbody tr:last-child td {
   border-bottom: 0;
 }
 
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
 .links a {
-  color: var(--primary);
+  display: inline-block;
+  padding: 7px 12px;
+  border-radius: 999px;
+  border: 1px solid #b9d9d4;
+  background: #f3fbf9;
+  color: #0e5f58;
   text-decoration: none;
-  font-weight: 700;
+  font-weight: 800;
+  font-size: 0.82rem;
+  line-height: 1.2;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.12s ease;
+}
+
+.links a:last-child {
+  background: var(--primary);
+  border-color: #0b5f58;
+  color: #ffffff;
+  box-shadow: 0 5px 12px rgba(15, 118, 110, 0.3);
 }
 
 .links a:hover,
 .links a:focus-visible {
-  text-decoration: underline;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(16, 24, 40, 0.14);
+}
+
+.links a:last-child:hover,
+.links a:last-child:focus-visible {
+  background: #0d6a63;
 }
 
 .final-section ul {
