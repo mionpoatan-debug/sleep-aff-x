@@ -193,6 +193,12 @@ tbody tr:last-child td {
 }
 
 .legal-box {
+  display: block !important;
+  background: #f7f7f7 !important;
+  border: 1px solid #e5e5e5 !important;
+  font-size: 12px !important;
+  color: #666 !important;
+
   font-size: 12px;
   color: #667085;
   background: #f7f8fa;
