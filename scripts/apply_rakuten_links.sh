@@ -50,7 +50,7 @@ while IFS= read -r line || [[ -n "$line" ]]; do
     continue
   fi
 
-  match_count="$(rg -o "data-rakuten-key=\"$key\"" "$HTML_PATH" | wc -l | tr -d ' ')"
+  match_count="$(grep -n -o "data-rakuten-key=\"$key\"" "$HTML_PATH" | wc -l | tr -d ' ')"
   if [[ "$match_count" -ne 1 ]]; then
     echo "Expected exactly 1 anchor for key '$key' in $HTML_PATH, found $match_count" >&2
     exit 1
