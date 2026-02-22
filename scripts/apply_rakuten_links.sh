@@ -37,7 +37,7 @@ while IFS= read -r line || [[ -n "$line" ]]; do
   KEY="$key" URL="$rakuten_url" perl -0777 -i -pe '
     my $k = $ENV{"KEY"};
     my $u = $ENV{"URL"};
-    s{(<a\s+data-rakuten-key="\Q$k\E"[^>]*\shref=")[^"]*(")}{$1.$u.$2}g;
+    s{(<a\s+data-rakuten-key="\Q$k\E"[^>]*\shref=")[^"]*(")}{$1$u$2}g;
   ' "$HTML_PATH"
 
   updated=$((updated + 1))
